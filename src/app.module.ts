@@ -1,7 +1,20 @@
 import { Module } from '@nestjs/common';
-import { IndexModule } from './index/index.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
+import { ApolloDriver } from '@nestjs/apollo';
+import { CompaniesModule } from './modules/companies/companies.resolver';
 
 @Module({
-  imports: [IndexModule],
+  imports: [
+    CompaniesModule,
+    GraphQLModule.forRoot({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
+  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

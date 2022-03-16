@@ -18,7 +18,7 @@ export function getFirestoreApp() {
 
 export async function initFirebase() {
   if (!firebaseApp) {
-    // console.log(process.env.project_id, process.env.client_email);
+    console.log(process.env.PROJECT_ID, process.env.CLIENT_EMAIL);
 
     firebaseApp = admin.initializeApp({
       credential: admin.credential.cert({

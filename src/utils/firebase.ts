@@ -23,7 +23,7 @@ export async function initFirebase() {
     firebaseApp = admin.initializeApp({
       credential: admin.credential.cert({
         projectId: process.env.project_id,
-        privateKey: process.env.private_key,
+        privateKey: process.env.private_key.replace(/\\n/g, '\n'),
         clientEmail: process.env.client_email,
       }),
     });

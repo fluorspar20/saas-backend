@@ -1,6 +1,10 @@
 import * as admin from 'firebase-admin';
 import * as fireorm from 'fireorm';
-require('json-dotenv')();
+
+const isProduction = process.env.NODE_ENV === 'production';
+if (!isProduction) {
+  require('json-dotenv')();
+}
 
 let firebaseApp: admin.app.App | null = null;
 export function getFirebaseApp() {

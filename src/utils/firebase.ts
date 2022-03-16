@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin';
 import * as fireorm from 'fireorm';
-require('json-dotenv')();
+require('dotenv').config();
 
 let firebaseApp: admin.app.App | null = null;
 export function getFirebaseApp() {
@@ -14,13 +14,13 @@ export function getFirestoreApp() {
 
 export async function initFirebase() {
   if (!firebaseApp) {
-    // console.log(process.env.project_id, process.env.client_email);
+    console.log(process.env.PROJECT_ID, process.env.CLIENT_EMAIL);
 
     firebaseApp = admin.initializeApp({
       credential: admin.credential.cert({
-        projectId: process.env.project_id,
-        privateKey: process.env.private_key,
-        clientEmail: process.env.client_email,
+        projectId: process.env.PROJECT_ID,
+        privateKey: process.env.PRIVATE_KEY,
+        clientEmail: process.env.CLIENT_EMAIL,
       }),
     });
 

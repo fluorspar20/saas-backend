@@ -12,6 +12,8 @@ import { CompaniesModule } from './modules/companies/companies.module';
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      introspection: true,
+      playground: true,
     }),
   ],
   controllers: [AppController],

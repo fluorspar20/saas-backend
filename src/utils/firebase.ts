@@ -7,6 +7,11 @@ export function getFirebaseApp() {
   return firebaseApp;
 }
 
+let firestoreApp = null;
+export function getFirestoreApp() {
+  return firestoreApp;
+}
+
 export async function initFirebase() {
   if (!firebaseApp) {
     // console.log(process.env.project_id, process.env.client_email);
@@ -18,8 +23,11 @@ export async function initFirebase() {
         clientEmail: process.env.client_email,
       }),
     });
+
     const firestore = admin.firestore();
+    firestoreApp = firestore;
     firestore.settings({ timestampsInSnapshots: true });
     fireorm.initialize(firestore);
+    // firebaseApp = admin.firestore()
   }
 }

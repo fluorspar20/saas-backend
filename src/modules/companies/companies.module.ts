@@ -1,9 +1,9 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Module } from '@nestjs/common';
+import { CompaniesResolver } from './companies.resolver';
+import { CompaniesService } from './companies.service';
 
-@Resolver()
-export class CompaniesResolver {
-  @Query(() => String)
-  async hello() {
-    return 'Hello World';
-  }
-}
+@Module({
+  imports: [],
+  providers: [CompaniesResolver, CompaniesService],
+})
+export class CompaniesModule {}

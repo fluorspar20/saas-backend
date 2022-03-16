@@ -2,6 +2,67 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type CompanyFeatures {
+  ARR: String
+  CashAndCashEquivalents: String
+  CostOfSales: String
+  DocURL: String
+  FilingDate: String
+  GAAPRevenue: String
+  Goodwill: String
+  GrossProfit: String
+  GrossPropertyAndEquipment: String
+  MRR: String
+  NetIncome: String
+  NetLoss: String
+  NonGAAPEarnings: String
+  OperatingIncome: String
+  PropertyAndEquipmentNet: String
+  RecurringRevenue: String
+  Revenues: String
+  SalesAndMarketing: String
+  SharesOutstanding: String
+  StockPrice: String
+  TotalAssets: String
+  TotalCurrentAssets: String
+  TotalCurrentLiabilities: String
+  TotalDebt: String
+  TotalEquity: String
+  TotalOperatingExpenses: String
+  TotalStockholdersEquity: String
+}
+
+type CompanySecFiling {
+  name: String
+  url: String
+}
+
+type _10k {
+  id: ID
+  features: CompanyFeatures
+  sec_filing: [CompanySecFiling!]
+}
+
+type _10q {
+  id: ID
+  features: CompanyFeatures
+  sec_filing: [CompanySecFiling!]
+}
+
+type CompanyType {
+  id: ID
+  Address: String
+  CompanyName: String
+  FaxNumber: String
+  HoldingType: String
+  PhoneNumber: String
+  URL: String
+  IPODate: String
+  _10k: [_10k!]
+  _10q: [_10q!]
+}
+
 type Query {
-  hello: String!
+  getAllCompanies: [CompanyType!]!
+  getCompanyById(cik: String!): CompanyType!
 }

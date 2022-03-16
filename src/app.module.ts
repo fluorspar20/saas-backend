@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { ApolloDriver } from '@nestjs/apollo';
-import { CompaniesModule } from './modules/companies/companies.resolver';
+import { CompaniesModule } from './modules/companies/companies.module';
 
 @Module({
   imports: [

@@ -1,8 +1,18 @@
-import { Module } from '@nestjs/common';
-import { CompaniesResolver } from './companies.module';
+import { Args, Query, Resolver } from '@nestjs/graphql';
+import { CompaniesService } from './companies.service';
+import { CompanyType } from './dto/company.dto';
 
-@Module({
-  imports: [],
-  providers: [CompaniesResolver],
-})
-export class CompaniesModule {}
+@Resolver()
+export class CompaniesResolver {
+  constructor(private companyService: CompaniesService) {}
+
+  @Query(() => [CompanyType])
+  async getAllCompanies() {
+    return this.companyService.getAllCompanies();
+  }
+
+  @Query(() => CompanyType)
+  async getCompanyById(@Args('cik') id: string) {
+    return this.companyService.getCompanyById(id);
+  }
+}

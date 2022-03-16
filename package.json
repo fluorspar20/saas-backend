@@ -3,6 +3,9 @@
   "description": "this will house the server of web app",
   "version": "1.0.0",
   "main": "src/main.ts",
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "nest build",

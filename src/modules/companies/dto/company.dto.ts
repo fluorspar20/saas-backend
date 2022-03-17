@@ -1,12 +1,13 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { Collection, ISubCollection, SubCollection } from 'fireorm';
+import { _8k } from './eightK.dto';
 import { _10k } from './tenK.dto';
 import { _10q } from './tenQ.dto';
 
 @ObjectType()
 @Collection('company')
 export class CompanyType {
-  @Field(() => ID, { nullable: true })
+  @Field(() => ID)
   id: string; // same as CIK
 
   @Field({ nullable: true })
@@ -30,6 +31,12 @@ export class CompanyType {
   @Field({ nullable: true })
   IPODate: string;
 
+  @Field({ nullable: true })
+  exchange: string;
+
+  @Field({ nullable: true })
+  ticker: string;
+
   @Field(type => [_10k], { nullable: true })
   @SubCollection(_10k)
   _10k: ISubCollection<_10k>[];
@@ -38,8 +45,9 @@ export class CompanyType {
   @SubCollection(_10q)
   _10q: ISubCollection<_10q>[];
 
-  // @Field({ nullable: true })
-  // EightK: string;
+  @Field(type => [_8k], { nullable: true })
+  @SubCollection(_8k)
+  _8k: ISubCollection<_8k>[];
 
   // @Field({ nullable: true })
   // type: '0' | '-1' | '1';

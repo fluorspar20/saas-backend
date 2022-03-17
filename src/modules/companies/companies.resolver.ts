@@ -12,7 +12,7 @@ export class CompaniesResolver {
   }
 
   @Query(() => CompanyType)
-  async getCompanyById(@Args('cik') id: string) {
-    return this.companyService.getCompanyById(id);
+  async getCompanyByCIK(@Args('cik') id: string) {
+    return this.companyService.getCompanyByCIK(id);
   }
 }

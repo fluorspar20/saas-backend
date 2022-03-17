@@ -2,17 +2,30 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type _8KAnalysisType {
+  sentence: String
+  sentiment: String
+}
+
+type _8k {
+  id: ID
+  _0: [_8KAnalysisType!]
+  _1: [_8KAnalysisType!]
+  _2: [_8KAnalysisType!]
+  _3: [_8KAnalysisType!]
+  _4: [_8KAnalysisType!]
+}
+
 type CompanyFeatures {
   ARR: String
   CashAndCashEquivalents: String
   CostOfSales: String
-  DocURL: String
-  FilingDate: String
   GAAPRevenue: String
   Goodwill: String
   GrossProfit: String
   GrossPropertyAndEquipment: String
   MRR: String
+  MarketableSecurities: String
   NetIncome: String
   NetLoss: String
   NonGAAPEarnings: String
@@ -39,18 +52,24 @@ type CompanySecFiling {
 
 type _10k {
   id: ID
+  DocURL: String
+  FilingDate: String
+  FilingForDate: String
   features: CompanyFeatures
   sec_filing: [CompanySecFiling!]
 }
 
 type _10q {
   id: ID
+  DocURL: String
+  FilingDate: String
+  FilingForDate: String
   features: CompanyFeatures
   sec_filing: [CompanySecFiling!]
 }
 
 type CompanyType {
-  id: ID
+  id: ID!
   Address: String
   CompanyName: String
   FaxNumber: String
@@ -58,11 +77,14 @@ type CompanyType {
   PhoneNumber: String
   URL: String
   IPODate: String
+  exchange: String
+  ticker: String
   _10k: [_10k!]
   _10q: [_10q!]
+  _8k: [_8k!]
 }
 
 type Query {
   getAllCompanies: [CompanyType!]!
-  getCompanyById(cik: String!): CompanyType!
+  getCompanyByCIK(cik: String!): CompanyType!
 }

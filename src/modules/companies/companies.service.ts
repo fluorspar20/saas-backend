@@ -54,15 +54,27 @@ export class CompaniesService {
             tempDoc.push({ id: doc.id, ...doc.data() });
           });
           tempCompany._10q = tempDoc;
-          res.push(tempCompany);
+          // res.push(tempCompany);
           // console.log(res);
+        });
+
+      await this.firestoreApp
+        .collection(`/company/${company.id}/_8k`)
+        .get()
+        .then(querySnapshot => {
+          const tempDoc = [];
+          querySnapshot.forEach(doc => {
+            tempDoc.push({ id: doc.id, ...doc.data() });
+          });
+          tempCompany._8k = tempDoc;
+          res.push(tempCompany);
         });
     }
 
     return res;
   }
 
-  async getCompanyById(id: string) {
+  async getCompanyByCIK(id: string) {
     const company: CompanyType = await this.companyRepository.findById(id);
 
     if (!company) throw new Error(`Company with CIK ${id} could not be found`);
@@ -89,6 +101,17 @@ export class CompaniesService {
         });
         company._10q = tempDoc;
         // console.log(res);
+      });
+
+    await this.firestoreApp
+      .collection(`/company/${company.id}/_8k`)
+      .get()
+      .then(querySnapshot => {
+        const tempDoc = [];
+        querySnapshot.forEach(doc => {
+          tempDoc.push({ id: doc.id, ...doc.data() });
+        });
+        company._8k = tempDoc;
       });
 
     return company;

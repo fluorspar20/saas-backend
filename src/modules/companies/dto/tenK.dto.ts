@@ -12,12 +12,6 @@ class CompanyFeatures {
   CostOfSales: string;
 
   @Field({ nullable: true })
-  DocURL: string;
-
-  @Field({ nullable: true })
-  FilingDate: string;
-
-  @Field({ nullable: true })
   GAAPRevenue: string;
 
   @Field({ nullable: true })
@@ -31,6 +25,9 @@ class CompanyFeatures {
 
   @Field({ nullable: true })
   MRR: string;
+
+  @Field({ nullable: true })
+  MarketableSecurities: string;
 
   @Field({ nullable: true })
   NetIncome: string;
@@ -97,6 +94,15 @@ class CompanySecFiling {
 export class _10k {
   @Field(() => ID, { nullable: true }) // same as the year of filing
   id: string;
+
+  @Field({ nullable: true })
+  DocURL: string;
+
+  @Field({ nullable: true })
+  FilingDate: string;
+
+  @Field({ nullable: true })
+  FilingForDate: string;
 
   @Field(type => CompanyFeatures, { nullable: true })
   features: CompanyFeatures;

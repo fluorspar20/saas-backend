@@ -33,15 +33,23 @@
 - ### Installation
 
   Clone this repository locally and run:
+
   ` $ npm install`
+
   to install all the dependencies.
 
 - ### Starting the server
+
   To run the server in development:
+
   ` $ npm run start`
+
   To run the server in development in watch mode:
+
   ` $ npm run start:dev`
+
   To run the server in production mode:
+
   ` $ npm run start:prod`
 
 ## Usage

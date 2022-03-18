@@ -1,4 +1,4 @@
-# Project Name
+# SEC FILING ANALYZER FOR SAAS COMPANIES
 
 > This codebase houses the server(backend) of our High Prep Problem Statement: DIGITAL ALPHA'S SEC FILING ANALYZER FOR SAAS COMPANIES, as part of the Inter IIT Tech Meet 2022.
 > Live demo [_here_](https://saasbackendiiti.herokuapp.com/graphql).

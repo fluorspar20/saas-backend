@@ -3,6 +3,9 @@ import { ObjectType, Field, ID } from '@nestjs/graphql';
 @ObjectType()
 class _8KAnalysisType {
   @Field({ nullable: true })
+  date: string;
+
+  @Field({ nullable: true })
   sentence: string;
 
   @Field({ nullable: true })

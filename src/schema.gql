@@ -51,6 +51,15 @@ type CompanySecFiling {
   url: String
 }
 
+type _10q {
+  id: ID
+  DocURL: String
+  FilingDate: String
+  FilingForDate: String
+  features: CompanyFeatures
+  sec_filing: [CompanySecFiling!]
+}
+
 type _10k {
   id: ID
   DocURL: String
@@ -60,13 +69,9 @@ type _10k {
   sec_filing: [CompanySecFiling!]
 }
 
-type _10q {
-  id: ID
-  DocURL: String
-  FilingDate: String
-  FilingForDate: String
-  features: CompanyFeatures
-  sec_filing: [CompanySecFiling!]
+type ScoreObject {
+  year: String
+  score: Float
 }
 
 type CompanyType {
@@ -83,6 +88,7 @@ type CompanyType {
   _10k: [_10k!]
   _10q: [_10q!]
   _8k: [_8k!]
+  score: [ScoreObject!]
 }
 
 type Query {

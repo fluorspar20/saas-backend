@@ -24,14 +24,6 @@ export class CompaniesService {
       // console.log(company.id);
 
       const tempCompany = company;
-      // tempCompany.Address = company.Address;
-      // tempCompany.id = company.id;
-      // tempCompany.CompanyName = company.CompanyName;
-      // tempCompany.FaxNumber = company.FaxNumber;
-      // tempCompany.HoldingType = company.HoldingType;
-      // tempCompany.PhoneNumber = company.PhoneNumber;
-      // tempCompany.URL = company.URL;
-      // tempCompany.IPODate = company.IPODate;
 
       await this.firestoreApp
         .collection(`/company/${company.id}/_10k`)
@@ -54,8 +46,6 @@ export class CompaniesService {
             tempDoc.push({ id: doc.id, ...doc.data() });
           });
           tempCompany._10q = tempDoc;
-          // res.push(tempCompany);
-          // console.log(res);
         });
 
       await this.firestoreApp

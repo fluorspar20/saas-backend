@@ -5,6 +5,15 @@ import { _10k } from './tenK.dto';
 import { _10q } from './tenQ.dto';
 
 @ObjectType()
+class ScoreObject {
+  @Field({ nullable: true })
+  year: string;
+
+  @Field({ nullable: true })
+  score: number;
+}
+
+@ObjectType()
 @Collection('company')
 export class CompanyType {
   @Field(() => ID)
@@ -49,6 +58,6 @@ export class CompanyType {
   @SubCollection(_8k)
   _8k: ISubCollection<_8k>[];
 
-  // @Field({ nullable: true })
-  // type: '0' | '-1' | '1';
+  @Field(type => [ScoreObject], { nullable: true })
+  score: ScoreObject[];
 }

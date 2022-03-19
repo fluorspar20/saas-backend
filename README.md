@@ -20,7 +20,7 @@
   metrics and numbers are not readily available on publicly reported SEC Filings and need to be
   chalked out from the available forms (10-K, 10-Q, 8-K, etc.).
 
-- Accessing these metrics can be of tremendous value to the right users. However, forms that are being filed are very detailed and take time to analyze. Thus we propose an interactive dashboard capable of analyzing SEC Filings, to the SaaS companies and investors alike, to have a quick overview of the Key SaaS Goals so that they can make an informed decision.
+- Accessing these metrics can be of tremendous value to the users looking to invest. However, the forms filed in SEC are very detailed, diverse and take time to analyze. Thus, we propose an interactive dashboard capable of analyzing SEC Filings to the SaaS companies and investors alike to quickly overview the Key SaaS Goals and data to make an informed decision.
 
 ## Technologies Used
 
@@ -54,7 +54,7 @@
 
 ## Usage
 
-Kindly go through the documentation to get a complete understanding of the allowed queries and schema objects. Here are few possible (and userful) queries that one might want to make:
+Kindly go through the documentation, which can be found at `/doc/index.html`, to get a complete understanding of the allowed queries and schema objects. Here are few possible (and useful) queries that one might want to make:
 
 - Get the CIK of all the companies
 

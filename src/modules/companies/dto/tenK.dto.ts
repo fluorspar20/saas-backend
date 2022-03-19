@@ -104,6 +104,9 @@ export class _10k {
   @Field({ nullable: true })
   FilingForDate: string;
 
+  @Field({ nullable: true })
+  score: string;
+
   @Field(type => CompanyFeatures, { nullable: true })
   features: CompanyFeatures;
 

@@ -3,6 +3,7 @@
 # ------------------------------------------------------
 
 type _8KAnalysisType {
+  date: String
   sentence: String
   sentiment: String
 }
